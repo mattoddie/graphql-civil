@@ -1,12 +1,17 @@
 package civil
 
 import (
+	"errors"
 	"fmt"
 	"io"
 
 	"cloud.google.com/go/civil"
 	"github.com/99designs/gqlgen/graphql"
-	"github.com/pkg/errors"
+)
+
+// errors
+var (
+	ErrorDateMustBeString = errors.New("date must be a string")
 )
 
 // MarshalCivilDate marshals a civil date
@@ -21,12 +26,12 @@ func MarshalCivilDate(d civil.Date) graphql.Marshaler {
 func UnmarshalCivilDate(v interface{}) (civil.Date, error) {
 	s, ok := v.(string)
 	if !ok {
-		return civil.Date{}, fmt.Errorf("Date must be a string")
+		return civil.Date{}, ErrorDateMustBeString
 	}
 
 	dt, err := civil.ParseDate(s)
 	if err != nil {
-		return civil.Date{}, errors.Wrap(err, "civil.ParseDate")
+		return civil.Date{}, fmt.Errorf("civil.ParseDate: %w", err)
 	}
 
 	return dt, nil
