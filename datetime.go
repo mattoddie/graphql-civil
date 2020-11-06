@@ -17,7 +17,6 @@ var (
 // MarshalCivilDateTime marshals a civil datetime
 func MarshalCivilDateTime(dt civil.DateTime) graphql.Marshaler {
 	return graphql.WriterFunc(func(w io.Writer) {
-		// nolint:errcheck,gosec
 		io.WriteString(w, `"`+dt.String()+`"`)
 	})
 }
