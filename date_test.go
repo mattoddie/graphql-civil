@@ -17,15 +17,15 @@ func TestMarshalCivilDate(t *testing.T) {
 	}{
 		{
 			date:     time.Date(1991, time.June, 1, 0, 0, 0, 0, time.UTC),
-			expected: "1991-06-01",
+			expected: `"1991-06-01"`,
 		},
 		{
 			date:     time.Date(2020, time.November, 6, 12, 0, 0, 0, time.UTC),
-			expected: "2020-11-06",
+			expected: `"2020-11-06"`,
 		},
 		{
 			date:     time.Time{},
-			expected: "0001-01-01",
+			expected: `"0001-01-01"`,
 		},
 	} {
 		t.Run(tc.expected, func(t *testing.T) {
