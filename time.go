@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"strconv"
 
 	"cloud.google.com/go/civil"
 	"github.com/99designs/gqlgen/graphql"
@@ -17,7 +18,7 @@ var (
 // MarshalCivilTime marshals a civil time
 func MarshalCivilTime(t civil.Time) graphql.Marshaler {
 	return graphql.WriterFunc(func(w io.Writer) {
-		io.WriteString(w, `"`+t.String()+`"`)
+		io.WriteString(w, strconv.Quote(t.String()))
 	})
 }
 

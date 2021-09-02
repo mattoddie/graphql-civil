@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"strconv"
 
 	"cloud.google.com/go/civil"
 	"github.com/99designs/gqlgen/graphql"
@@ -17,7 +18,7 @@ var (
 // MarshalCivilDate marshals a civil date
 func MarshalCivilDate(d civil.Date) graphql.Marshaler {
 	return graphql.WriterFunc(func(w io.Writer) {
-		io.WriteString(w, `"`+d.String()+`"`)
+		io.WriteString(w, strconv.Quote(d.String()))
 	})
 }
 
