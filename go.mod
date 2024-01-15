@@ -3,7 +3,7 @@ module github.com/mattoddie/graphql-civil
 go 1.21
 
 require (
-	cloud.google.com/go v0.111.0
+	cloud.google.com/go v0.112.0
 	github.com/99designs/gqlgen v0.17.42
 	github.com/stretchr/testify v1.8.4
 )
