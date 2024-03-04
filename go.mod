@@ -5,7 +5,7 @@ go 1.21
 require (
 	cloud.google.com/go v0.112.0
 	github.com/99designs/gqlgen v0.17.42
-	github.com/stretchr/testify v1.8.4
+	github.com/stretchr/testify v1.9.0
 )
 
 require (
