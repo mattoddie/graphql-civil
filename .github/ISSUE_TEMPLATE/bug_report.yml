@@ -1,0 +1,33 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: What did you expect to happen, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: The input value, schema and gqlgen.yml snippet that trigger the problem.
+      render: go
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: graphql-civil version
+      placeholder: v1.6.0
+    validations:
+      required: true
+  - type: input
+    id: go-version
+    attributes:
+      label: Go and gqlgen versions
+      placeholder: go1.26.9, gqlgen v0.17.95
+    validations:
+      required: true
