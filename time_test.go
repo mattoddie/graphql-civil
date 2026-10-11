@@ -39,7 +39,7 @@ func TestMarshalCivilTime(t *testing.T) {
 
 func TestUnmarshalCivilTime(t *testing.T) {
 	for name, tc := range map[string]struct {
-		time     interface{}
+		time     any
 		expected civil.Time
 		err      error
 	}{
