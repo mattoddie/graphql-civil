@@ -34,6 +34,16 @@ govulncheck ./...          # go install golang.org/x/vuln/cmd/govulncheck@latest
 
 `golangci-lint fmt` applies the configured formatters (gofumpt and goimports).
 
+The parsers have fuzz tests, which also run weekly in CI. To fuzz one
+locally:
+
+```sh
+go test -run '^$' -fuzz '^FuzzCivilDate$' -fuzztime 1m .
+```
+
+If fuzzing finds a failure, the failing input is saved under `testdata/fuzz`;
+commit it with the fix so it becomes a regression test.
+
 ## Pull requests
 
 1. Fork the repository and create a branch from `main`.
