@@ -39,7 +39,7 @@ func TestMarshalCivilDate(t *testing.T) {
 
 func TestUnmarshalCivilDate(t *testing.T) {
 	for name, tc := range map[string]struct {
-		date     interface{}
+		date     any
 		expected civil.Date
 		err      error
 	}{

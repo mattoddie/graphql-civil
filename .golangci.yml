@@ -1,0 +1,16 @@
+version: "2"
+
+linters:
+  enable:
+    - errorlint
+    - gocritic
+    - misspell
+    - modernize
+    - revive
+    - testifylint
+    - usestdlibvars
+
+formatters:
+  enable:
+    - gofumpt
+    - goimports
